@@ -46,9 +46,9 @@ function _after_(afn, mode) {
  * @return {wraped}
  */
 
-export function before(fn, b4fn, mode) {
+module.exports.before = function (fn, b4fn, mode) {
     return _before_.call(fn, b4fn, mode);
-}
+};
 
 
 /**
@@ -58,6 +58,6 @@ export function before(fn, b4fn, mode) {
  * @param [mode] {boolean}  if true,afn will get the result of fn as argument,else, afn's arguments is what you passed;
  * @return {wraped}
  */
-export function after(fn, afn, mode) {
+module.exports.after = function (fn, afn, mode) {
     return _after_.call(fn, afn, mode);
-}
+};
