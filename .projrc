@@ -1,0 +1,29 @@
+
+const path=require('path');
+
+let devConf = {
+    host        : "404.qq.com",
+    port        : 9090,
+    contentBase : path.resolve(__dirname, './dist/www/'),
+    addr        : "0.0.0.0",
+    https       : false,
+    allowedHosts: ["404.qq.com", "127.0.0.1",'localhost']
+};
+
+module.exports.dev    = devConf;
+module.exports.server = {
+    host       : devConf.host,
+    port       : devConf.port,
+    contentBase: devConf.contentBase,
+};
+
+module.exports.page = {
+    commLib: [],
+    favicon: ""//path.resolve(__dirname, './src/$asset/img/favicon.png')
+};
+module.exports.zip  = {
+    dest    : "./dist/",
+    source  : "./dist/www/",
+    wrap    : '',
+    fileName: 'www.zip'
+};
