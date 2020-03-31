@@ -3,7 +3,7 @@
 
 ## how to use
 
-有函数 `fn` 和 `log`.
+- **假定有函数 `fn` 和 `log`**
   ```javascript
   function fn(arg) {
     console.log("fn");
