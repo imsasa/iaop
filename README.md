@@ -3,7 +3,7 @@
 
 ## how to use
 
-- **假定有函数 `fn` 和 `log`**
+有函数 `fn` 和 `log`.
   ```javascript
   function fn(arg) {
     console.log("fn");
@@ -14,45 +14,66 @@
       console.log("log：",arg);
   }
   ```
-- **安装**
 
-  ```bash 
+### 安装
+```bash 
   npm i iaop 
   ````
-- **在函数fn执行前执行log**
+### 在函数fn执行前执行log函数
+- **方式1**
 
-  ```javascript
-  let before=require('iaop').before;
-  let beforeFn=before(fn,log);
-  beforeFn();
-  ```
-- **在函数fn执行后执行log**
+```javascript
+let before=require('iaop').before;
+let beforeFn=before(fn,log);
+beforeFn();
+```
+- **方式2**
 
-  ```javascript
-  let after=require('iaop').after;
-  let afterFn=after(fn,log);
-  afterFn();
-  ```
+```javascript
+let wrapFn=fn.before(log);
+wrapFn();
+```
 
-- **传递插入函数执行后的返回值**
+### 在函数fn执行后执行log
+**方式1**
 
-  默认情况下，`after` 和  `before` 的第二参数为false 。这时，插入的函数和原执行函数的执行时参数是一致的。`before` 函数的第二个参数为true时，会将插入函数的执行结果传递给执行函数；`after` 函数的第二个参数为true时，为将原执行函数的结果传递给after函数。
+```javascript
+let after=require('iaop').after;
+let afterFn=after(fn,log);
+afterFn();
+```
+**方式2**
 
-  ```javascript
-  let before=require('iaop').before;
-  let warpFn=before(fn,log,true);
-  let ret=wrapFn(2); 
-  // log函数的返回值会传递给fn,ret的值为3;
-  ```
+```javascript
+let wrapFn=fn.after(log);
+wrapFn();
+```
+
 	
-- **链式调用**
+### 链式调用
 
-  ```javascript
-  let before=require('iaop').before;
-  let wrapFn=aop.before(fn,function(arg){
-          console.log("1");
-      })
-      .after(function() {
-          console.log("3");
-      })
-  ```
+ ```javascript
+require('iaop');
+let wrapFn=fn.before(function(arg){
+        console.log("1");
+    }).after(function() {
+      console.log("3");
+    })
+wrapFn();
+```
+
+### 异步
+
+```javascript
+let cnt=0;
+function foo() {
+    console.log(cnt);
+}
+let wrapFn = foo.before(function (arg) {
+    return new Promise((resolve, reject)=> {
+        cnt++;
+        setTimeout(resolve,10);
+    })
+})
+let ret=wrapFn();//ret 将是一个promise对象
+```

@@ -1,6 +1,6 @@
 {
   "name"           : "iaop",
-  "version"        : "1.0.2",
+  "version"        : "1.1.2",
   "description"    : "将函数进行aop封装的库",
   "main"           : "./src/index.js",
   "repository"     : {
