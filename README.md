@@ -17,63 +17,33 @@
 
 ### 安装
 ```bash 
-  npm i iaop 
+  npm i https://github.com/imsasa/iaop.git
   ````
-### 在函数fn执行前执行log函数
+
+### 使用方式
 - **方式1**
 
 ```javascript
-let before=require('iaop').before;
+import {before} from 'iaop';
 let beforeFn=before(fn,log);
 beforeFn();
 ```
 - **方式2**
 
 ```javascript
+import 'iaop'
+let fn=()=>console.log('dosth');
 let wrapFn=fn.before(log);
 wrapFn();
 ```
 
-### 在函数fn执行后执行log
-**方式1**
+### api
+- before， 在函数执行前增加一个执行函数；
+- after, 在函数执行后增加一个执行函数；
+- pip, 在函数执行后增加一个执行函数fn,fn的入参是将前一个函数的执行结果；
+- fitler， 在函数执行前增加一个执行函数fn，如果fn返回false则不执行函数；
+- unshift, 在函数执行前增加一个执行函数fn，fn的执行结果是函数的入参；
+- co , 函数可并发执行；
 
-```javascript
-let after=require('iaop').after;
-let afterFn=after(fn,log);
-afterFn();
-```
-**方式2**
 
-```javascript
-let wrapFn=fn.after(log);
-wrapFn();
-```
 
-	
-### 链式调用
-
- ```javascript
-require('iaop');
-let wrapFn=fn.before(function(arg){
-        console.log("1");
-    }).after(function() {
-      console.log("3");
-    })
-wrapFn();
-```
-
-### 异步
-
-```javascript
-let cnt=0;
-function foo() {
-    console.log(cnt);
-}
-let wrapFn = foo.before(function (arg) {
-    return new Promise((resolve, reject)=> {
-        cnt++;
-        setTimeout(resolve,10);
-    })
-})
-let ret=wrapFn();//ret 将是一个promise对象
-```
