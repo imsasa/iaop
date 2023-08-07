@@ -1,6 +1,6 @@
 {
   "name"           : "iaop",
-  "version"        : "1.1.2",
+  "version"        : "1.1.5",
   "description"    : "将函数进行aop封装的库",
   "main"           : "./src/index.js",
   "repository"     : {
@@ -15,7 +15,7 @@
     "test:mocha": "mocha --require @babel/register --ui bdd ./tests/index.js"
   },
   "author"         : "sasa",
-  "license"        : "ISC",
+  "license"        : "MIT",
   "devDependencies": {
     "@babel/core"          : "^7.6.0",
     "@babel/preset-env"    : "^7.6.0",
