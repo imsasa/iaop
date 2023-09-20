@@ -1,17 +1,15 @@
 // let assert = require("assert");
 import assert from "assert";
-import {before, after} from "../src/index.js";
+import {before, after,unshift} from "../src/index.js";
 
 
 describe('function before', function () {
     it("before", function () {
         let bar = 'bar';
         let cnt = 0;
-
         function foo() {
             return ++cnt;
         }
-
         let wrapFn = before(foo, () => {bar = 'barChged'});
         let ret    = wrapFn();
         assert(bar, "barChged");
@@ -21,13 +19,20 @@ describe('function before', function () {
         function foo(arg) {
             return ++arg;
         }
-
         let wrapFn = before(foo, (arg) => arg + 2, true);
+        // let wrapFn2 = before(wrapFn, (arg) =>arg + 2, true);
+        let ret    = wrapFn(1);
+        assert.equal(ret, 2);
+    });
+    it("unshift", function () {
+        function foo(arg) {
+            return ++arg;
+        }
+        let wrapFn = unshift(foo, (arg) => arg + 2, true);
         // let wrapFn2 = before(wrapFn, (arg) =>arg + 2, true);
         let ret    = wrapFn(1);
         assert.equal(ret, 4);
     });
-
     it("multi", function () {
         let cnt = 0;
         let baz = "a";
