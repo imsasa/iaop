@@ -1,5 +1,6 @@
-let assert = require("assert");
-import {before, after} from "../src/index";
+// let assert = require("assert");
+import assert from "assert";
+import {before, after} from "../src/index.js";
 
 
 describe('function before', function () {
@@ -106,5 +107,20 @@ describe('function after', function () {
         });
         wrapFn()
     });
-
 });
+describe('test context', function () {
+    it("context one", function (done) {
+        function Cls(){
+            this.name='sasa'
+        }
+        Cls.prototype.sayname=function(){
+            console.log(this.name);
+            done();
+            return this.name;
+        }
+        let foo=new Cls();
+        foo.sayname=foo.sayname.before(()=>console.log('before'));
+        assert.equal(foo.sayname(), 'sasa');
+    });
+});
+

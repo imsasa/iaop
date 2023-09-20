@@ -1,31 +1,34 @@
 {
-  "name"           : "iaop",
-  "version"        : "1.1.2",
-  "description"    : "将函数进行aop封装的库",
-  "main"           : "./src/index.js",
-  "repository"     : {
+  "name": "iaop",
+  "version": "1.1.2",
+  "description": "将函数进行aop封装的库",
+  "main": "./src/index.js",
+  "type": "module",
+  "repository": {
     "type": "git",
-    "url" : "git+https://github.com/imsasa/iaop.git"
+    "url": "git+https://github.com/imsasa/iaop.git"
   },
-  "scripts"        : {
-    "clean"     : "rimraf dist",
-    "test"      : "mocha ./tests/indexOf.js",
-    "gendoc"    : "jsdoc -c jsdoc.conf.json",
-    "test:nyc"  : "cross-env NODE_ENV=test nyc mocha --require @babel/register --reporter mochawesome --ui bdd ./tests/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "gendoc": "jsdoc -c jsdoc.conf.json",
+    "test:nyc": "cross-env NODE_ENV=test nyc mocha --require @babel/register --reporter mochawesome --ui bdd ./tests/index.js",
     "test:mocha": "mocha --require @babel/register --ui bdd ./tests/index.js"
   },
-  "author"         : "sasa",
-  "license"        : "ISC",
+  "author": "sasa",
+  "license": "ISC",
   "devDependencies": {
-    "@babel/core"          : "^7.6.0",
-    "@babel/preset-env"    : "^7.6.0",
-    "@babel/register"      : "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
     "babel-plugin-istanbul": "^5.2.0",
-    "cross-env"            : "^5.2.0",
-    "istanbul"             : "^0.4.5",
-    "jsdoc"                : "^3.6.3",
-    "mocha"                : "^4.0.1",
-    "mochawesome"          : "^4.1.0",
-    "nyc"                  : "^13.3.0"
+    "cross-env": "^5.2.0",
+    "istanbul": "^0.4.5",
+    "jsdoc": "^3.6.3",
+    "mochawesome": "^4.1.0",
+    "nyc": "^13.3.0"
+  },
+  "dependencies": {
+    "assert": "^2.1.0",
+    "mocha": "^10.2.0"
   }
 }
