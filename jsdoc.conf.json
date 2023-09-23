@@ -11,11 +11,8 @@
   "templates": {
     "cleverLinks"    : false,
     "monospaceLinks" : true,
-    "systemName"     : "remoteFileExplorer",
-    "footer"         : "Created by evanmao",
-    "copyright"      : "2013",
+    "footer"         : "Created by sasa",
     "navType"        : "vertical",
-    "theme"          : "haruki",
     "linenums"       : true,
     "collapseSymbols": true,
     "inverseNav"     : false
@@ -24,6 +21,9 @@
     "encoding"   : "utf8",
     "destination": "./dist/docs/",
     "recurse"    : true,
-    "private"    : true
-  }
+    "private"    : false,
+    "search": true,
+    "template": "node_modules/docdash"
+  },
+  "version": "v2.0"
 }

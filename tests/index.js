@@ -1,6 +1,6 @@
 // let assert = require("assert");
-import assert from "assert";
-import {before, after,unshift} from "../src/index.js";
+import assert                         from "assert";
+import {before, after, unshift, pipe} from "../src/index.js";
 
 
 describe('function before', function () {
@@ -86,12 +86,12 @@ describe('function after', function () {
         assert(true, ret === 3);
     });
 
-    it("pass", function () {
+    it("pipe", function () {
         function foo(arg) {
             return ++arg;
         }
 
-        let wrapFn = after(foo, (arg) => arg + 2, true);
+        let wrapFn = pipe(foo, (arg) => arg + 2, true);
         let ret    = wrapFn(1);
         assert.equal(ret, 4);
     });
