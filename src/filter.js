@@ -22,10 +22,10 @@ export default function filter(fn, filter, ctx) {
 
 /**
  * Add a filter method to the Function prototype that allows filtering of function execution
- * @param filter {function} return false to stop the function
- * @param ctx
+ * @param fn {function} filter function that return false to stop the function
+ * @param [ctx]
  * @return {Function}
  */
-Function.prototype.filter = function (filter, ctx) {
-    return filter(this, filter, ctx);
+Function.prototype.filter = function (fn, ctx) {
+    return filter(this, fn, ctx);
 };
