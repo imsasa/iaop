@@ -118,7 +118,7 @@ export function debounce(fn, $opt) {
     }
     return _throttle_(fn, opt);
 }
-
+export default {throttle,debounce}
 // test
 // let fn = (arg) => console.log("fn", arg);
 // let t  = throttle(fn, {delay: 3000, leave: false, instant: false});

@@ -5,7 +5,7 @@
  * @param ctx
  * @return {Function}
  */
-export function filter(fn, filter, ctx) {
+export default function filter(fn, filter, ctx) {
     let ths = ctx || this;
     return function () {
         let ret = filter.apply(ths, arguments);
