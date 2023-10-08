@@ -1,6 +1,9 @@
 ## what's this
 这是一个js工具库，用来帮助你在函数执行前后插入操作（aop编程）;
 
+##api
+https://imsasa.github.io/iaop/index.html
+
 ## how to use
 
 有函数 `fn` 和 `log`.
