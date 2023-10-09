@@ -1,6 +1,6 @@
 {
   "name": "iaop",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "将函数进行aop封装的库",
   "main": "./src/index.js",
   "type": "module",
@@ -14,13 +14,9 @@
     "test:nyc": "cross-env NODE_ENV=test nyc mocha --require @babel/register --reporter mochawesome --ui bdd ./tests/index.js",
     "test:mocha": "mocha --require @babel/register --ui bdd ./tests/index.js"
   },
-
   "author": "sasa",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/register": "^7.6.0",
     "babel-plugin-istanbul": "^5.2.0",
     "cross-env": "^5.2.0",
     "docdash": "^2.0.2",

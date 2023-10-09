@@ -6,8 +6,8 @@
  * @return {Function}
  */
 export default function filter(fn, filter, ctx) {
-    let ths = ctx || this;
     return function () {
+        let ths = ctx || this;
         let ret = filter.apply(ths, arguments);
         if (ret?.then) {
             return ret.then(ret => {
